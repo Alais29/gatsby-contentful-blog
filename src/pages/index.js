@@ -8,7 +8,6 @@ import SEO from "../components/seo"
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allContentfulPost.edges
-  console.log(posts)
 
   if (posts.length === 0) {
     return (
@@ -29,11 +28,11 @@ const BlogIndex = ({ data, location }) => {
       <SEO title="All posts" />
       <Bio />
       <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
-          const title = post.node.title || post.node.slug
+        {posts.map(({ node }) => {
+          const title = node.title || node.slug
 
           return (
-            <li key={post.node.id}>
+            <li key={node.id}>
               <article
                 className="post-list-item"
                 itemScope
@@ -41,13 +40,13 @@ const BlogIndex = ({ data, location }) => {
               >
                 <header>
                   <h2>
-                    <Link to={post.node.slug} itemProp="url">
+                    <Link to={node.slug} itemProp="url">
                       <span itemProp="headline">{title}</span>
                     </Link>
                   </h2>
                 </header>
                 <section>
-                  <p itemProp="description">{post.node.subtitle}</p>
+                  <p itemProp="description">{node.subtitle}</p>
                 </section>
               </article>
             </li>

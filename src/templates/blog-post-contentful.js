@@ -45,14 +45,14 @@ const BlogPostContentfulTemplate = ({ data, location, pageContext }) => {
           }}
         >
           <li>
-            {previous && (
+            {previous.slug && (
               <Link to={`/${previous.slug}`} rel="prev">
                 ← {previous.title}
               </Link>
             )}
           </li>
           <li>
-            {next && (
+            {next.slug && (
               <Link to={`/${next.slug}`} rel="next">
                 {next.title} →
               </Link>
