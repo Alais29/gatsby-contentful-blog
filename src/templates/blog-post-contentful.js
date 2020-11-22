@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -9,7 +10,6 @@ const BlogPostContentfulTemplate = ({ data, location, pageContext }) => {
   const post = data.contentfulPost
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = pageContext
-  console.log(pageContext)
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -23,7 +23,8 @@ const BlogPostContentfulTemplate = ({ data, location, pageContext }) => {
         itemType="http://schema.org/Article"
       >
         <header>
-          <h1 itemProp="headline">{post.title}</h1>
+          <Img fluid={post.image.fluid} />
+          <h1 itemProp="headline" style={{ marginTop: "2rem" }}>{post.title}</h1>
         </header>
         <section
           dangerouslySetInnerHTML={{ __html: post.description.childMarkdownRemark.html }}
@@ -79,6 +80,11 @@ export const pageQuery = graphql`
       title
       subtitle
       author
+      image {
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
       description {
         childMarkdownRemark {
           html
