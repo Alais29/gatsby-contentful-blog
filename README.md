@@ -1,4 +1,15 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
+# Gatsby Contentful Blog
+
+An example gatsby blog using Contentful as CMS and the Gatsby Starter Blog as a starter [https://www.gatsbyjs.com/starters/gatsbyjs/gatsby-starter-blog/](https://www.gatsbyjs.com/starters/gatsbyjs/gatsby-starter-blog/).
+
+The project was made following this tutorial [https://www.youtube.com/watch?v=fY3mBJSDA44&list=PL2dKqfImstaRbjzzirbBfv9W2kycaKjvs&index=1](https://www.youtube.com/watch?v=fY3mBJSDA44&list=PL2dKqfImstaRbjzzirbBfv9W2kycaKjvs&index=1) with a few modifications:
+
+- Couldn't manage to get the rich text field graphql query to work so I replaced it with a long text field with markdown
+- The previous and next links didn't work as showed on the tutorial so I modified the createPage context property on gatsby-node.js so that it could work properly
+
+
+
 <p align="center">
   <a href="https://www.gatsbyjs.com">
     <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
